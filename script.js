@@ -5,6 +5,7 @@ message = 555
 var sms = 'World'
 sms = 555
 console.log(message + sms)
+console.log(`${message} ${sms}`)
 
 //Data types
 
