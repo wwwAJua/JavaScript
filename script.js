@@ -358,31 +358,45 @@
 // }
 
 
-var divs = document.querySelectorAll('div')
-var link = document.querySelector('a')
+// var divs = document.querySelectorAll('div')
+// var link = document.querySelector('a')
 
-for (var i = 0; i < divs.length; i++) {
+// for (var i = 0; i < divs.length; i++) {
 
-	divs[i].addEventListener('click', function (event) {
-		event.stopPropagation() // Срабатывает только на выбраном объекте(без всплытия/погружения)
-		console.log(this.getAttribute('id'))
-	})
-}
+// 	divs[i].addEventListener('click', function (event) {
+// 		event.stopPropagation() // Срабатывает только на выбраном объекте(без всплытия/погружения)
+// 		console.log(this.getAttribute('id'))
+// 	})
+// }
 
-// Объект события------------------------------------------------------------
+// // Объект события------------------------------------------------------------
 
 
-link.addEventListener('click', linkClick)
+// link.addEventListener('click', linkClick)
 
-function linkClick(event) {
-	event.preventDefault() // Отменяем поведение ссылки
+// function linkClick(event) {
+// 	event.preventDefault() // Отменяем поведение ссылки
 
-	var div = divs[0] // Выбираем элемент с которым хотим работать
+// 	var div = divs[0] // Выбираем элемент с которым хотим работать
 
-	div.style.display = div.style.display === 'none'
-		? 'flex'
-		: 'none'
-	// Через style.display меняем значение с flex на none
-	console.log(div.style.display) // выводим текущее значение в console
-}
+// 	div.style.display = div.style.display === 'none'
+//			? 'flex'
+// 		: 'none'
+// 	// Через style.display меняем значение с flex на none
+// 	console.log(div.style.display) // выводим текущее значение в console
+// }
 
+// Делегирование событий-------------------------------------------------------------
+
+
+document.getElementById('Wrapper').addEventListener('click', function (event) {
+	var tagName = event.target.tagName.toLowerCase()
+
+	if (tagName === 'p') {
+		event.target.style.color = 'blue'
+	}
+
+	if (event.target.classList.contains('color')) {
+		event.target.style.color = 'red'
+	}
+})
